@@ -2,8 +2,11 @@
 
 :root {
   --primary-color: #e3f9ff;
-  --secondary-color: #3a4452;
+  --secondary-color: #2c3e50;
   --operator-color: #33ffd8;
+  --button-bg: #34495e;
+  --button-hover: #1abc9c;
+  --equal-button: #f39c12;
 }
 
 * {
@@ -24,25 +27,35 @@
 
 .calculator {
   background: var(--secondary-color);
-  padding: 20px;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling input buttons */
 .calculator form input {
   border: 0;
   outline: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  box-shadow: -8px -8px 15px rgba(225, 225, 225, 0.1),
+  width: 65px;
+  height: 65px;
+  border-radius: 12px;
+  box-shadow: -5px -5px 10px rgba(225, 225, 225, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.2);
-  background: transparent;
-  font-size: 20px;
+  background: var(--button-bg);
+  font-size: 22px;
   color: #fff;
   cursor: pointer;
-  margin: 10px;
+  margin: 8px;
+  transition: 0.2s ease-in-out;
 }
 
+/* Button hover effect */
+.calculator form input:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+/* Display input styling */
 form .display {
   display: flex;
   justify-content: flex-end;
@@ -52,14 +65,41 @@ form .display {
 form .display input {
   text-align: right;
   flex: 1;
-  font-size: 45px;
+  font-size: 40px;
   box-shadow: none;
+  padding: 10px;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
 }
 
+/* Equal button */
 form input.equal {
-  width: 145px;
+  width: 150px;
+  background: var(--equal-button);
+  color: #fff;
+  font-weight: bold;
 }
 
+form input.equal:hover {
+  background: #e67e22;
+}
+
+/* Operator buttons */
 form input.operator {
   color: var(--operator-color);
+  font-weight: bold;
+}
+
+/* Additional styling for clear and delete buttons */
+form input[value="AC"],
+form input[value="DE"] {
+  background: #e74c3c;
+  color: #fff;
+  font-weight: bold;
+}
+
+form input[value="AC"]:hover,
+form input[value="DE"]:hover {
+  background: #c0392b;
 }
