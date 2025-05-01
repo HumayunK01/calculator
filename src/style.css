@@ -1,0 +1,273 @@
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Apply Poppins font to all elements */
+* {
+  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  /* Dark mode variables */
+  --bg-color: #242424;
+  --calculator-bg: rgba(28, 28, 28, 0.8);
+  --display-bg: rgba(28, 28, 28, 0.5);
+  --btn-bg: rgba(80, 80, 80, 0.7);
+  --btn-hover: rgba(100, 100, 100, 0.8);
+  --btn-active: rgba(120, 120, 120, 0.9);
+  --operator-bg: #ff9f0a;
+  --operator-hover: #ffb143;
+  --text-color: white;
+  --secondary-text: rgba(255, 255, 255, 0.7);
+  --clear-bg: rgba(165, 165, 165, 0.7);
+  --clear-color: #1c1c1c;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle at top right, rgba(255, 159, 10, 0.15), transparent 60%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Calculator Styles */
+.calculator {
+  width: 300px;
+  background-color: var(--calculator-bg);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+}
+
+.display {
+  background-color: var(--display-bg);
+  padding: 20px;
+  text-align: right;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.display-text {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.15s ease;
+}
+
+/* Animation for display updates */
+.display-text.updated {
+  transform: scale(1.05);
+  color: var(--operator-bg);
+}
+
+/* Error state styling */
+.display-text.error {
+  color: #ff3b30;
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.error-message {
+  color: #ff3b30;
+  font-weight: 400;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.calculation-history {
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: var(--secondary-text);
+  margin-bottom: 5px;
+  text-align: right;
+  min-height: 1.5rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: 'Poppins', system-ui, sans-serif;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  background-color: var(--btn-active);
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.operator {
+  background-color: var(--operator-bg);
+  color: white;
+}
+
+.operator:hover {
+  background-color: var(--operator-hover);
+}
+
+.clear {
+  background-color: var(--clear-bg);
+  color: var(--clear-color);
+}
+
+.clear:hover {
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+.equals {
+  background-color: var(--operator-bg);
+  color: white;
+}
+
+.equals:hover {
+  background-color: var(--operator-hover);
+}
+
+.zero {
+  width: 100%;
+  grid-column: span 2;
+  border-radius: 35px;
+}
+
+.function {
+  background-color: var(--clear-bg);
+  color: var(--clear-color);
+}
+
+.function:hover {
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+/* Responsive design */
+@media (max-width: 400px) {
+  .calculator {
+    width: 280px;
+    padding: 15px;
+  }
+
+  .btn {
+    height: 55px;
+    width: 55px;
+    font-size: 1.3rem;
+  }
+
+  .display-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .calculator {
+    width: 250px;
+    padding: 12px;
+  }
+
+  .btn {
+    height: 50px;
+    width: 50px;
+    font-size: 1.2rem;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .display-text {
+    font-size: 2.2rem;
+  }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #ffffff;
+    --calculator-bg: rgba(255, 255, 255, 0.8);
+    --display-bg: rgba(255, 255, 255, 0.5);
+    --btn-bg: rgba(240, 240, 240, 0.7);
+    --btn-hover: rgba(230, 230, 230, 0.8);
+    --btn-active: rgba(220, 220, 220, 0.9);
+    --text-color: #213547;
+    --secondary-text: rgba(33, 53, 71, 0.7);
+    --clear-bg: rgba(200, 200, 200, 0.7);
+    --clear-color: #213547;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+
+    color: var(--text-color);
+    background-image: radial-gradient(circle at top right, rgba(255, 159, 10, 0.1), transparent 60%);
+  }
+}
