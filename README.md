@@ -2,8 +2,6 @@
 
 A sleek, responsive calculator with glass morphism design, built with TypeScript and Vite. This calculator supports both light and dark modes and follows the correct order of operations (BODMAS/BIDMAS).
 
-<img src="public/favicon.png" alt="Calculator Icon" width="64" height="64" style="display: block; margin: 20px auto;">
-
 ![Calculator Screenshot](public/output.png)
 
 
@@ -98,10 +96,6 @@ calculator/
    ```
    npm run build
    ```
-
-## License
-
-MIT
 
 ## Credits
 
