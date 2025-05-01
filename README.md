@@ -84,15 +84,22 @@ calculator/
 ### Running the Project
 
 1. Clone the repository
-2. Install dependencies:
+   ```
+   git clone https://github.com/HumayunK01/Calculator.git
+   ```
+2. Change directory into the cloned repository
+   ```
+   cd Calculator
+   ```
+3. Install dependencies:
    ```
    npm install
    ```
-3. Start the development server:
+4. Start the development server:
    ```
    npm run dev
    ```
-4. Build for production:
+5. Build for production:
    ```
    npm run build
    ```
